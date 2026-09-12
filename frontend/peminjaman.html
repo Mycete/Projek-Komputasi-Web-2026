@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Formulir peminjaman SIPERALAB" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulir peminjaman SIPERALAB">
     <title>SIPERALAB | Peminjaman</title>
-    <link rel="stylesheet" href="/src/images/style.css" />
+    <link rel="stylesheet" href="/src/images/style.css">
   </head>
   <body>
     <header class="site-header">
@@ -34,8 +34,7 @@
             inputmode="numeric"
             pattern="[0-9]{10}"
             maxlength="10"
-            required
-          />
+            required>
           <label for="nama">Nama lengkap</label>
           <input
             id="nama"
@@ -43,8 +42,7 @@
             type="text"
             autocomplete="name"
             minlength="3"
-            required
-          />
+            required>
         </fieldset>
         <fieldset>
           <legend>Detail peminjaman</legend>
@@ -60,8 +58,7 @@
             id="tanggal-pinjam"
             name="tanggal_pinjam"
             type="date"
-            required
-          />
+            required>
           <label for="durasi">Durasi peminjaman (hari)</label>
           <p id="durasi-hint" class="hint">Durasi 1 sampai 7 hari.</p>
           <input
@@ -71,8 +68,7 @@
             min="1"
             max="7"
             aria-describedby="durasi-hint"
-            required
-          />
+            required>
           <label for="keperluan">Keperluan</label>
           <textarea
             id="keperluan"
@@ -89,8 +85,7 @@
             name="setuju"
             type="checkbox"
             value="ya"
-            required
-          />
+            required>
           <label for="setuju">
             Saya menyetujui aturan peminjaman laboratorium.
           </label>
