@@ -1,19 +1,6 @@
+/*1. RESET & BASE STYLES*/
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-
-:root {
-    --color-primary: #1d4ed8;
-    --color-primary-dark: #1e3a8a;
-    --color-surface: #ffffff;
-    --color-background: #f5f7fb;
-    --color-border: #cbd5e1;
-    --color-text: #1f2937;
-    --radius: 0.75rem;
-    --space: 1rem;
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
 }
 
 body {
@@ -22,78 +9,134 @@ body {
     color: var(--color-text);
 }
 
+img, svg, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*2. CSS VARIABLES (:ROOT)*/
+:root {
+    --color-primary: #1d4ed8;
+    --color-primary-dark: #1e3a8a;
+    --color-surface: #ffffff;
+    --color-background: #f5f7fb;
+    --color-border: #cbd5e1;
+    --color-text: #1f2937;
+    --radius: 0.75rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+}
+
+/*3. LAYOUT CONTAINER*/
 main, .site-header, .site-footer {
     width: min(1100px, calc(100% - 2rem));
     margin-inline: auto;
 }
 
-ite-header {
-    padding-block: 1rem;
-    border-bottom: 1px solid var(--color-border);
+/*4. HEADER & NAVIGATION*/
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    padding-block: var(--space-3);
 }
+
 .brand {
     color: var(--color-primary-dark);
     font-weight: 700;
     text-decoration: none;
 }
-nav a {
-    color: var(--color-primary);
-    margin-right: 1rem;
-}
 
+.site-header nav,
 nav {
     display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
     height: auto;
 }
 
-header a {
+header a,
+nav a {
+    color: var(--color-primary);
     text-decoration: none;
 }
 
 header nav a {
-    text-decoration: none;
     padding: 5px 15px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/*5. COMPONENTS, ARTICLES, & ABOUT*/
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.hero_media {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-4);
+}
+
 .equipment-card {
+    display: flex;
+    flex-direction: column;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 1rem;
     margin-block: 1rem;
 }
+
+.equipment-card figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.equipment-card figcaption {
+    margin-top: auto;
+    margin-bottom: 0.7rem;
+}
+
 .equipment-card img {
     max-width: 100%;
     height: auto;
 }
 
-
-main img {
-    height: 150px;
+.equipment-meta {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: auto;
 }
 
-fieldset {
-    margin-block: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-}
-
-label {
-    display: block;
-    margin-top: .75rem;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: .7rem;
-    border: 1px solid var(--color-border);
-    border-radius: .5rem;
-    font: inherit;
+.equipment-meta p strong {
+    align-items: flex-end;
 }
 
 .peralatan-list {
@@ -101,18 +144,82 @@ input, select, textarea {
     max-width: 100%;
 }
 
-footer a {
-    text-decoration: none;
+.about-main {
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
 }
 
-article,
-fieldset {
-    margin: 1rem 0;
-    padding: 1rem;
-    border: 1px solid #cbd5e1;
+.visi-misi-conteiner {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.visi-misi-main div h2 {
+    text-align: center;
+}
+
+.visi-misi {
+    display: flex;
+    flex-direction: row;
+}
+
+.visi {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.misi {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.misi ol {
+    padding: 0;
+    list-style-position: inside;
 }
 
 article {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+main img {
+    height: 150px;
+    display: flex;
+    gap: 10px;
+}
+
+/*6. FORMS & INPUTS*/
+fieldset {
+    margin-block: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
 }
 
@@ -122,12 +229,12 @@ label {
     font-weight: 600;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
     font: inherit;
-    padding: 0.5rem;
 }
 
 textarea {
@@ -139,7 +246,49 @@ textarea {
     color: #475569;
 }
 
+.form-grid {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.form-actions>* {
+    flex: 1 1 10rem;
+}
+
+/*7. FOOTER & ACCESSIBILITY / STATES*/
+footer a {
+    text-decoration: none;
+}
+
 input:focus, select:focus, textarea:focus, button:focus, a:focus {
     outline: 3px solid #93c5fd;
     outline-offset: 2px;
+}
+
+/*8. MEDIA QUERIES (RESPONSIVE)*/
+@media (min-width: 48rem) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hero_content,
+    .hero_media {
+        flex: 1 1 0;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .visi-misi {
+        display: flex;
+    }
 }
